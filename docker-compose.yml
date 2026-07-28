@@ -1,0 +1,24 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  taskflow-db:
+    image: mysql:8.0
+    container_name: taskflow_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: taskflow_pro
+      MYSQL_USER: taskflow_user
+      MYSQL_PASSWORD: taskflow_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - taskflow_db_data:/var/lib/mysql
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 5
+
+volumes:
+  taskflow_db_data:
