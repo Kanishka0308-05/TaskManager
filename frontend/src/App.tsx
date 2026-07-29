@@ -1,16 +1,19 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import Layout from './components/Layout';
+import DashboardLayout from './components/layout/DashboardLayout';
+import { ToastProvider } from './components/toast/ToastProvider';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <ToastProvider>
+      <BrowserRouter>
+        <DashboardLayout>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+          </Routes>
+        </DashboardLayout>
+      </BrowserRouter>
+    </ToastProvider>
   );
 }
 

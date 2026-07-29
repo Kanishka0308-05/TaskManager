@@ -8,6 +8,11 @@ export interface Task {
   status: TaskStatus;
   priority: TaskPriority;
   createdAt: string;
+  dueDate?: string | null;
+  category?: {
+    id: number;
+    name: string;
+  } | null;
 }
 
 export interface TaskRequest {

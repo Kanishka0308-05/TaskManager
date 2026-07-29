@@ -31,7 +31,7 @@ export default function TaskForm({ initialTask, onSubmit, onCancel }: TaskFormPr
           priority,
         });
       }}
-      className="space-y-6 rounded-3xl border border-slate-800 bg-slate-950/95 p-6 shadow-sm shadow-slate-950/10"
+      className="space-y-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-950/10 dark:border-slate-800 dark:bg-slate-900/95 dark:shadow-slate-950/40"
     >
       <div>
         <p className="text-sm uppercase tracking-[0.26em] text-slate-500">Task editor</p>
@@ -45,7 +45,7 @@ export default function TaskForm({ initialTask, onSubmit, onCancel }: TaskFormPr
             value={title}
             onChange={(event) => setTitle(event.target.value)}
             placeholder="Issue tracking update"
-            className="w-full rounded-2xl border border-slate-800 bg-slate-900/95 px-4 py-3 text-slate-100 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
+            className="w-full rounded-2xl border border-slate-200 bg-slate-100 px-4 py-3 text-slate-950 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 dark:border-slate-800 dark:bg-slate-900/95 dark:text-slate-100"
             required
             minLength={3}
           />
@@ -55,10 +55,10 @@ export default function TaskForm({ initialTask, onSubmit, onCancel }: TaskFormPr
           <select
             value={priority}
             onChange={(event) => setPriority(event.target.value as TaskPriority)}
-            className="w-full rounded-2xl border border-slate-800 bg-slate-900/95 px-4 py-3 text-slate-100 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
+            className="w-full rounded-2xl border border-slate-200 bg-slate-100 px-4 py-3 text-slate-950 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 dark:border-slate-800 dark:bg-slate-900/95 dark:text-slate-100"
           >
             {priorityOptions.map((option) => (
-              <option key={option} value={option} className="text-slate-900">
+              <option key={option} value={option} className="text-slate-900 dark:text-slate-100">
                 {option}
               </option>
             ))}
@@ -73,7 +73,7 @@ export default function TaskForm({ initialTask, onSubmit, onCancel }: TaskFormPr
           onChange={(event) => setDescription(event.target.value)}
           rows={4}
           placeholder="Describe the task in a few sentences"
-          className="w-full rounded-3xl border border-slate-800 bg-slate-900/95 px-4 py-3 text-slate-100 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
+          className="w-full rounded-3xl border border-slate-200 bg-slate-100 px-4 py-3 text-slate-950 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 dark:border-slate-800 dark:bg-slate-900/95 dark:text-slate-100"
           required
           minLength={5}
         />
@@ -85,10 +85,10 @@ export default function TaskForm({ initialTask, onSubmit, onCancel }: TaskFormPr
           <select
             value={status}
             onChange={(event) => setStatus(event.target.value as TaskStatus)}
-            className="w-full rounded-2xl border border-slate-800 bg-slate-900/95 px-4 py-3 text-slate-100 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
+            className="w-full rounded-2xl border border-slate-200 bg-slate-100 px-4 py-3 text-slate-950 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 dark:border-slate-800 dark:bg-slate-900/95 dark:text-slate-100"
           >
             {statusOptions.map((option) => (
-              <option key={option} value={option} className="text-slate-900">
+              <option key={option} value={option} className="text-slate-900 dark:text-slate-100">
                 {option.replace('_', ' ')}
               </option>
             ))}

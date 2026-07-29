@@ -6,8 +6,10 @@ export async function getTasks(): Promise<Task[]> {
   return response.data;
 }
 
+const DEFAULT_USER_ID = 1;
+
 export async function createTask(task: TaskRequest): Promise<Task> {
-  const body = task.userId ? { ...task, user: { id: task.userId } } : task;
+  const body = { ...task, user: { id: task.userId ?? DEFAULT_USER_ID } };
   const response = await api.post<Task>('/tasks', body);
   return response.data;
 }
